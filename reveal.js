@@ -1,4 +1,4 @@
-// MedBridge Health — scroll reveal
+// MedBridge Health: scroll reveal
 document.addEventListener('DOMContentLoaded', function () {
   var els = document.querySelectorAll('.reveal');
 
@@ -17,4 +17,23 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
   els.forEach(function (el) { observer.observe(el); });
+
+  // Mobile hamburger menu toggle
+  var menuToggle = document.querySelector('.menu-toggle');
+  var navLinks = document.querySelector('.nav-links');
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function () {
+      var isOpen = navLinks.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Close the menu after tapping a link
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navLinks.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 });
