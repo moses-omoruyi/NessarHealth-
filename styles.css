@@ -1,5 +1,5 @@
 /* ============================
-   MedBridge Health — Design System
+   MedBridge Health: Design System
    ============================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
@@ -303,7 +303,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* ============================
-   Wave divider — bridge-arc motif
+   Wave divider, bridge-arc motif
    ============================ */
 
 .wave-divider {
@@ -344,7 +344,7 @@ section { padding: 84px 0; }
 .section-teal-light { background: var(--teal-light); }
 
 /* ============================
-   Why choose us — feature strip
+   Why choose us: feature strip
    ============================ */
 
 .feature-strip {
@@ -386,7 +386,7 @@ section { padding: 84px 0; }
 }
 
 /* ============================
-   How it works — steps
+   How it works: steps
    ============================ */
 
 .steps {
@@ -610,3 +610,111 @@ section { padding: 84px 0; }
 }
 .hero-animate.delay-1 { animation-delay: 0.12s; }
 .hero-animate.delay-2 { animation-delay: 0.24s; }
+
+/* ============================
+   Founder Note
+   ============================ */
+.founder-note {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  background: var(--white);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 12px 40px rgba(11, 61, 92, 0.08);
+}
+
+.founder-photo {
+  flex-shrink: 0;
+}
+
+.founder-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--teal));
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.founder-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--navy-deep);
+  font-style: italic;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.founder-text strong {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--navy-deep);
+}
+
+.founder-text > span:last-child {
+  color: var(--teal);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .founder-note {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* ============================
+   Founding Partner Program band
+   ============================ */
+.fp-program {
+  background: var(--navy-deep);
+  color: var(--white);
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.fp-program h2 {
+  color: var(--white);
+}
+
+.fp-program .fp-intro {
+  color: rgba(248, 250, 251, 0.8);
+  max-width: 640px;
+  margin-bottom: 2rem;
+}
+
+.fp-perks {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.fp-perks li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  color: rgba(248, 250, 251, 0.92);
+}
+
+.fp-perks li strong {
+  color: var(--white);
+}
+
+.fp-perks li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 0.5rem;
+  border-radius: 50%;
+  background: var(--amber);
+}
