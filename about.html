@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — MedBridge Health</title>
+<meta name="description" content="Learn the story behind MedBridge Health and why we're building a bridge between healthcare practices and skilled virtual assistants.">
+<link rel="stylesheet" href="styles.css">
+<style>
+.about-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.about-story .story-photo {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.value-card { text-align: center; padding: 12px; }
+.value-badge {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px;
+}
+.value-badge svg { width: 28px; height: 28px; }
+@media (max-width: 800px) {
+  .about-story { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo-lockup">
+      <svg class="logo-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M42 22H58V38H74V54H58V70H42V54H26V38H42V22Z" fill="#1B8A8A"/>
+        <circle cx="50" cy="46" r="9" fill="#F8FAFB" stroke="#1B8A8A" stroke-width="2"/>
+        <circle cx="50" cy="46" r="5" fill="#0B3D5C"/>
+        <path d="M10 78C24 60 40 60 50 68C60 60 76 60 90 78" stroke="#0B3D5C" stroke-width="6" stroke-linecap="round"/>
+        <path d="M28 78V62M72 78V62" stroke="#0B3D5C" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-text">MedBridge Health<span>Virtual Assistants. Real Impact.</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="roles.html">Roles</a>
+      <a href="about.html" class="active">About</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="book-a-consultation.html" class="nav-cta">Book a Consultation</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">Our story</span>
+    <h1>Built at the intersection of healthcare and remote work</h1>
+    <p>MedBridge Health exists because good administrative support shouldn't be the reason a practice falls behind.</p>
+  </div>
+</section>
+
+<section class="section-white" style="padding-top:0;">
+  <div class="container about-story">
+    <div>
+      <h2 style="margin-bottom:20px;">Why we started MedBridge</h2>
+      <p style="color:var(--ink-soft); margin-bottom:18px;">MedBridge Health was founded by someone who has stood on both sides of this problem — with a background in pharmacology and hands-on experience supporting fintech and edtech teams remotely.</p>
+      <p style="color:var(--ink-soft); margin-bottom:18px;">That combination made one thing clear: healthcare practices are drowning in administrative work that has nothing to do with patient care, while skilled, capable remote talent often struggles to find the right opportunity to prove itself.</p>
+      <p style="color:var(--ink-soft);">MedBridge Health is the bridge between those two realities — matching healthcare practices with virtual assistants who are trained, reliable, and genuinely invested in getting it right.</p>
+    </div>
+    <div class="story-photo">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Healthcare administrative workspace">
+    </div>
+  </div>
+</section>
+
+<section class="section-teal-light">
+  <div class="container">
+    <div class="section-head">
+      <h2>What we stand for</h2>
+      <p>A few principles that shape every partnership we build.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21l7.78-7.55 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <h3>Care in every detail</h3>
+        <p style="color:var(--ink-soft); font-size:0.93rem;">We treat every task as if it directly affects patient outcomes — because eventually, it often does.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Reliability first</h3>
+        <p style="color:var(--ink-soft); font-size:0.93rem;">Practices need to trust that things get done on time, every time. We build for that trust from day one.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Honest growth</h3>
+        <p style="color:var(--ink-soft); font-size:0.93rem;">We're upfront about where we are — a growing company earning trust one partnership at a time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-white">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Want to be one of our first partners?</h2>
+      <p>We're onboarding early practices now, with hands-on attention that comes from being a growing team.</p>
+      <div class="cta-band-actions">
+        <a href="book-a-consultation.html" class="btn btn-primary">Book a Free Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-lockup">
+          <svg class="logo-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M42 22H58V38H74V54H58V70H42V54H26V38H42V22Z" fill="#1B8A8A"/>
+            <circle cx="50" cy="46" r="9" fill="#082B41" stroke="#1B8A8A" stroke-width="2"/>
+            <circle cx="50" cy="46" r="5" fill="#F8FAFB"/>
+            <path d="M10 78C24 60 40 60 50 68C60 60 76 60 90 78" stroke="#F8FAFB" stroke-width="6" stroke-linecap="round"/>
+            <path d="M28 78V62M72 78V62" stroke="#F8FAFB" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+          <span class="logo-text">MedBridge Health</span>
+        </div>
+        <p>Virtual assistants for US and UK healthcare practices. Real support, real impact.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="services.html">Services</a>
+        <a href="roles.html">Roles</a>
+        <a href="about.html">About</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="book-a-consultation.html">Book a Consultation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="mailto:hello@medbridgeva.com.ng">hello@medbridgeva.com.ng</a>
+        <a href="https://medbridgeva.com.ng">medbridgeva.com.ng</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 MedBridge Health. All rights reserved.</span>
+      <span>Lagos, Nigeria — serving practices across the US &amp; UK</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
