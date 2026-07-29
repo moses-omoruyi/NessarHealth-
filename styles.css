@@ -668,6 +668,14 @@ section { padding: 84px 0; }
   letter-spacing: 0.02em;
 }
 
+.founder-avatar-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--teal);
+}
+
 .founder-text p {
   font-size: 1.05rem;
   line-height: 1.7;
