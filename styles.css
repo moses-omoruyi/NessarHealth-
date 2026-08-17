@@ -175,7 +175,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .btn-primary {
   background: var(--plum);
-  color: var(--plum-deep);
+  color: var(--white);
 }
 .btn-primary:hover { background: var(--plum-deep); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 
