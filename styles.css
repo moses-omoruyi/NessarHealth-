@@ -62,13 +62,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    Header / Nav
    ============================ */
 
+html { scroll-behavior: smooth; }
+
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(248, 250, 251, 0.92);
+  background: rgba(247, 243, 238, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.25s ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 4px 20px rgba(56, 29, 59, 0.08);
 }
 
 .nav-wrap {
@@ -89,15 +96,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .logo-mark { width: 40px; height: 40px; flex-shrink: 0; }
 
 .logo-img { height: 44px; width: auto; display: block; }
-
-.footer-logo-card {
-  background: var(--white);
-  border-radius: var(--radius-sm);
-  padding: 10px 16px;
-  display: inline-flex;
-}
-
-.footer-logo-card .logo-img { height: 40px; }
 
 .logo-text {
   font-family: 'Space Grotesk', sans-serif;
@@ -170,8 +168,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-size: 0.98rem;
   border: none;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  transition: transform 0.15s cubic-bezier(.16,.84,.44,1), box-shadow 0.15s ease, background 0.15s ease;
 }
+
+.btn:active { transform: scale(0.97); }
 
 .btn-primary {
   background: var(--plum);
@@ -366,7 +366,7 @@ section { padding: 84px 0; }
   background: var(--bg);
   border-radius: var(--radius);
   padding: 34px 28px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s cubic-bezier(.16,.84,.44,1), box-shadow 0.25s ease;
 }
 
 .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
@@ -783,7 +783,7 @@ section { padding: 84px 0; }
   border-radius: var(--radius);
   padding: 28px 20px;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s cubic-bezier(.16,.84,.44,1), box-shadow 0.25s ease;
 }
 
 .who-help-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }

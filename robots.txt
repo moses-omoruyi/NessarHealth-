@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://medbridgeva.com.ng/sitemap.xml
+Sitemap: https://nessarhealth.com/sitemap.xml

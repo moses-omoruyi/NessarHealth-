@@ -18,6 +18,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   els.forEach(function (el) { observer.observe(el); });
 
+  // Header shadow on scroll
+  var header = document.querySelector('.site-header');
+  if (header) {
+    var onScroll = function () {
+      if (window.scrollY > 8) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   // Mobile hamburger menu toggle
   var menuToggle = document.querySelector('.menu-toggle');
   var navLinks = document.querySelector('.nav-links');
