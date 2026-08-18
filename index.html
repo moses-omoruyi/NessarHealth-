@@ -31,8 +31,10 @@
       <a href="/book-a-consultation/" class="nav-cta">Book a Consultation</a>
     </nav>
 
-    <button class="menu-toggle" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </button>
   </div>
 </header>
@@ -59,7 +61,13 @@
     <div class="hero-visual hero-animate delay-2">
       <div class="floating-card fc-1"><span class="dot"></span> HIPAA-informed workflows</div>
       <div class="hero-photo-frame">
-        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80" alt="Remote Care Coordinator reviewing patient scheduling on a laptop">
+        <img
+          src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80"
+          srcset="https://images.unsplash.com/photo-1584515933487-779824d29309?w=400&q=80 400w,
+                  https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80 800w,
+                  https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&q=80 1200w"
+          sizes="(max-width: 640px) 90vw, (max-width: 900px) 60vw, 500px"
+          alt="Remote Care Coordinator reviewing patient scheduling on a laptop">
       </div>
       <div class="floating-card fc-2"><span class="dot"></span> Responsive during your practice hours</div>
     </div>
