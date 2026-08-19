@@ -637,10 +637,13 @@ section { padding: 84px 0; }
   }
   .nav-links.is-open a:last-child { border-bottom: none; }
   .nav-links.is-open .nav-cta {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
     margin-top: 8px;
     text-align: center;
   }
-  .menu-toggle { display: block; }
+  .menu-toggle { display: flex; }
   .nav-wrap { position: relative; }
   .container { padding: 0 20px; }
   .nav-wrap { padding: 16px 20px; }
