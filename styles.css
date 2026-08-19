@@ -637,9 +637,9 @@ section { padding: 84px 0; }
   }
   .nav-links.is-open a:last-child { border-bottom: none; }
   .nav-links.is-open .nav-cta {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
     margin-top: 8px;
     text-align: center;
   }
