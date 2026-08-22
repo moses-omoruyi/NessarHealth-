@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6TK7PP1SV1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6TK7PP1SV1');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savings Calculator | Nessar Health</title>
+<meta name="description" content="See what a Nessar Health Remote Care Coordinator could save your practice compared to an in-house hire.">
+<link rel="icon" href="/assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .calc-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .calc-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+  }
+
+  .calc-toggle-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .calc-toggle-btn {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+
+  .calc-toggle-btn.active {
+    background: var(--plum);
+    border-color: var(--plum);
+    color: var(--white);
+  }
+
+  .calc-field { margin-bottom: 28px; }
+
+  .calc-field label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.92rem;
+    margin-bottom: 10px;
+  }
+
+  .calc-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .calc-input-wrap span {
+    position: absolute;
+    left: 18px;
+    color: var(--ink-soft);
+    font-weight: 600;
+    pointer-events: none;
+  }
+
+  #currentCost {
+    width: 100%;
+    padding: 14px 16px 14px 34px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--bg);
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+  }
+
+  #currentCost:focus {
+    outline: none;
+    border-color: var(--sage);
+  }
+
+  #currentCost:disabled {
+    opacity: 0.5;
+  }
+
+  .calc-hint {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+
+  .calc-results {
+    background: var(--sage-light);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .calc-results-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 6px;
+  }
+
+  .calc-results-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 6vw, 3.2rem);
+    color: var(--plum);
+    line-height: 1.1;
+    transition: opacity 0.15s ease;
+  }
+
+  .calc-results-sub {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+
+  .calc-results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .calc-results-stat {
+    background: var(--white);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+  }
+
+  .calc-results-stat strong {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    color: var(--plum-deep);
+  }
+
+  .calc-results-stat span {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .calc-disclaimer {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 20px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .calc-cta {
+    text-align: center;
+    margin-top: 28px;
+  }
+
+  @media (max-width: 600px) {
+    .calc-card { padding: 28px 22px; }
+    .calc-results { padding: 24px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="/" class="logo-lockup">
+      <img src="/assets/nessar-logo.png" alt="Nessar Health" class="logo-img">
+    </a>
+
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/services/">Services</a>
+      <a href="/roles/">Roles</a>
+      <a href="/about/">About</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/contact/">Contact</a>
+      <a href="/book-a-consultation/" class="nav-cta">Book a Consultation</a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">Savings Calculator</span>
+    <h1>See what additional capacity could actually cost</h1>
+    <p>A quick, honest estimate, no email required, no sales call needed to see the numbers.</p>
+  </div>
+</section>
+
+<svg class="wave-divider to-white" viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0,40 C150,80 350,0 600,30 C850,60 1050,10 1200,40 L1200,90 L0,90 Z"/></svg>
+
+<section class="section-white" style="padding-top:0;">
+  <div class="container calc-wrap">
+    <div class="calc-card reveal">
+
+      <div class="calc-field">
+        <label>Do you currently pay for in-house admin support?</label>
+        <div class="calc-toggle-group">
+          <button type="button" class="calc-toggle-btn active" id="hasStaffBtn">Yes, I do</button>
+          <button type="button" class="calc-toggle-btn" id="noStaffBtn">Not yet</button>
+        </div>
+      </div>
+
+      <div class="calc-field" id="costFieldWrap">
+        <label for="currentCost">What do you currently spend per month?</label>
+        <div class="calc-input-wrap">
+          <span>$</span>
+          <input type="number" id="currentCost" value="4583" min="0" step="50">
+        </div>
+        <p class="calc-hint">A typical fully-loaded in-house hire in the US runs about $55,000+/year ($4,583/month). Adjust to match your own numbers.</p>
+      </div>
+
+      <div class="calc-field">
+        <label>Compare against which Nessar Health tier?</label>
+        <div class="calc-toggle-group">
+          <button type="button" class="calc-toggle-btn active" data-tier="849">Part-Time ($849/mo)</button>
+          <button type="button" class="calc-toggle-btn" data-tier="1649">Full-Time ($1,649/mo)</button>
+        </div>
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-results-label">Estimated Monthly Savings</div>
+        <div class="calc-results-number" id="monthlySavings">$3,734</div>
+        <div class="calc-results-sub" id="savingsPercent">That's about 81% lower than your current cost</div>
+
+        <div class="calc-results-grid">
+          <div class="calc-results-stat">
+            <strong id="annualSavings">$44,808</strong>
+            <span>Estimated annual savings</span>
+          </div>
+          <div class="calc-results-stat">
+            <strong id="nessarCost">$849/mo</strong>
+            <span>Nessar Health cost</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="calc-disclaimer">Figures shown in USD and are illustrative estimates based on typical industry costs, not a guaranteed quote. Your actual pricing depends on the scope of support your practice needs.</p>
+
+      <div class="calc-cta">
+        <a href="/book-a-consultation/" class="btn btn-primary">Get a Real Quote for Your Practice</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="logo-lockup">
+        <img src="/assets/nessar-logo-light.png" alt="Nessar Health" class="logo-img">
+      </div>
+      <p>Remote Care Coordinators for practices in the United States, United Kingdom, Canada, Australia, and other international markets. Real support, real impact.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="/services/">Services</a>
+      <a href="/roles/">Roles</a>
+      <a href="/about/">About</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/savings-calculator/">Savings Calculator</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/faq/">FAQ</a>
+      <a href="/contact/">Contact</a>
+      <a href="/book-a-consultation/">Book a Consultation</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Service</a>
+      <a href="/hipaa-gdpr/">HIPAA &amp; GDPR</a>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>&copy; 2026 Nessar Health. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="/reveal.js"></script>
+<script>
+(function () {
+  var hasStaffBtn = document.getElementById('hasStaffBtn');
+  var noStaffBtn = document.getElementById('noStaffBtn');
+  var costInput = document.getElementById('currentCost');
+  var costFieldWrap = document.getElementById('costFieldWrap');
+  var tierBtns = document.querySelectorAll('[data-tier]');
+
+  var state = {
+    hasStaff: true,
+    monthlyCost: 4583,
+    tier: 849
+  };
+
+  function formatMoney(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function calculate() {
+    var current = state.hasStaff ? state.monthlyCost : 4583;
+    var savings = current - state.tier;
+    var pct = current > 0 ? Math.round((savings / current) * 100) : 0;
+
+    var monthlyEl = document.getElementById('monthlySavings');
+    var percentEl = document.getElementById('savingsPercent');
+    var annualEl = document.getElementById('annualSavings');
+    var nessarEl = document.getElementById('nessarCost');
+
+    monthlyEl.style.opacity = '0';
+    setTimeout(function () {
+      if (savings < 0) {
+        monthlyEl.textContent = formatMoney(Math.abs(savings)) + ' more';
+        percentEl.textContent = 'This tier costs more than your current spend, try Part-Time instead.';
+      } else {
+        monthlyEl.textContent = formatMoney(savings);
+        percentEl.textContent = "That's about " + pct + '% lower than ' + (state.hasStaff ? 'your current cost' : 'a typical in-house hire');
+      }
+      annualEl.textContent = formatMoney(Math.max(savings, 0) * 12);
+      nessarEl.textContent = '$' + state.tier.toLocaleString('en-US') + '/mo';
+      monthlyEl.style.opacity = '1';
+    }, 120);
+  }
+
+  hasStaffBtn.addEventListener('click', function () {
+    state.hasStaff = true;
+    hasStaffBtn.classList.add('active');
+    noStaffBtn.classList.remove('active');
+    costInput.disabled = false;
+    costFieldWrap.style.display = 'block';
+    calculate();
+  });
+
+  noStaffBtn.addEventListener('click', function () {
+    state.hasStaff = false;
+    noStaffBtn.classList.add('active');
+    hasStaffBtn.classList.remove('active');
+    costInput.disabled = true;
+    calculate();
+  });
+
+  costInput.addEventListener('input', function () {
+    state.monthlyCost = parseFloat(costInput.value) || 0;
+    calculate();
+  });
+
+  tierBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      tierBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      state.tier = parseInt(btn.getAttribute('data-tier'), 10);
+      calculate();
+    });
+  });
+
+  calculate();
+})();
+</script>
+
+</body>
+</html>
